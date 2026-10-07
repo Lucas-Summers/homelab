@@ -1,0 +1,45 @@
+---
+clusterName: kubernetes
+clusterEndpoint: https://192.168.8.10:6443
+
+# renovate: datasource=github-releases depName=siderolabs/talos
+talosVersion: v1.14.2
+# renovate: datasource=docker depName=ghcr.io/siderolabs/kubelet
+kubernetesVersion: v1.37.1
+
+secretsPath: secrets.sops.yaml
+
+nodes:
+  - host: "think1"
+    ip: "192.168.8.20"
+    role: control-plane
+    schematicId: "039535a70c3bd1667c355eca78571267704e55c8a24785033d183b8f26e39d82"
+    data:
+      installDisk: "/dev/nvme0n1"
+      installDiskSerial: ""
+      macAddr: "6c:4b:90:65:74:9d"
+      mtu: 1500
+      encryptDisk: false
+      kernelModules: []
+  - host: "think2"
+    ip: "192.168.8.21"
+    role: control-plane
+    schematicId: "039535a70c3bd1667c355eca78571267704e55c8a24785033d183b8f26e39d82"
+    data:
+      installDisk: "/dev/nvme0n1"
+      installDiskSerial: ""
+      macAddr: "6c:4b:90:62:8a:8a"
+      mtu: 1500
+      encryptDisk: false
+      kernelModules: []
+  - host: "think3"
+    ip: "192.168.8.22"
+    role: control-plane
+    schematicId: "039535a70c3bd1667c355eca78571267704e55c8a24785033d183b8f26e39d82"
+    data:
+      installDisk: "/dev/nvme0n1"
+      installDiskSerial: ""
+      macAddr: "6c:4b:90:63:e5:78"
+      mtu: 1500
+      encryptDisk: false
+      kernelModules: []
