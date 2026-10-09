@@ -22,6 +22,23 @@ spec:
         runAsUser: 1000
         runAsGroup: 1000
         fsGroup: 1000
+      initContainers:
+        - name: copy-config
+          image: ghcr.io/gethomepage/homepage:v2.4.0
+          command: ["sh", "-c"]
+          args: ["cp -L /config-source/* /app/config/"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: ["ALL"]
+            seccompProfile:
+              type: RuntimeDefault
+          volumeMounts:
+            - name: config-source
+              mountPath: /config-source
+              readOnly: true
+            - name: config
+              mountPath: /app/config
       containers:
         - name: homepage
           image: ghcr.io/gethomepage/homepage:v2.4.0
@@ -61,42 +78,10 @@ spec:
               memory: 1Gi
           volumeMounts:
             - name: config
-              mountPath: /app/config/settings.yaml
-              subPath: settings.yaml
-              readOnly: true
-            - name: config
-              mountPath: /app/config/services.yaml
-              subPath: services.yaml
-              readOnly: true
-            - name: config
-              mountPath: /app/config/bookmarks.yaml
-              subPath: bookmarks.yaml
-              readOnly: true
-            - name: config
-              mountPath: /app/config/widgets.yaml
-              subPath: widgets.yaml
-              readOnly: true
-            - name: config
-              mountPath: /app/config/kubernetes.yaml
-              subPath: kubernetes.yaml
-              readOnly: true
-            - name: config
-              mountPath: /app/config/docker.yaml
-              subPath: docker.yaml
-              readOnly: true
-            - name: config
-              mountPath: /app/config/custom.css
-              subPath: custom.css
-              readOnly: true
-            - name: config
-              mountPath: /app/config/custom.js
-              subPath: custom.js
-              readOnly: true
-            - name: logs
-              mountPath: /app/config/logs
+              mountPath: /app/config
       volumes:
-        - name: config
+        - name: config-source
           configMap:
             name: homepage
-        - name: logs
+        - name: config
           emptyDir: {}
