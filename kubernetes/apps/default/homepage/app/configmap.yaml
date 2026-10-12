@@ -12,6 +12,9 @@ data:
         - Echo:
             href: https://echo.${SECRET_DOMAIN}
             description: Test service
+        - SearXNG:
+            href: https://search.${SECRET_DOMAIN}
+            description: Private search
   bookmarks.yaml: "[]"
   widgets.yaml: "[]"
   kubernetes.yaml: ""

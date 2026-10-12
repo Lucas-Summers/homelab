@@ -10,3 +10,4 @@ resources:
   - ./namespace.yaml
   - ./echo/ks.yaml
   - ./homepage/ks.yaml
+  - ./searxng/ks.yaml
