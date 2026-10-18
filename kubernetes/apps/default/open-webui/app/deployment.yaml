@@ -29,6 +29,15 @@ spec:
                   key: WEBUI_SECRET_KEY
             - name: UVICORN_WORKERS
               value: "1"
+            - name: ENABLE_OLLAMA_API
+              value: "false"
+            - name: OPENAI_API_BASE_URL
+              value: http://cli-proxy-api.default.svc.cluster.local:8317/v1
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cli-proxy-api-secret
+                  key: OPENAI_API_KEY
           ports:
             - name: http
               containerPort: 8080

@@ -9,6 +9,7 @@ components:
 resources:
   - ./namespace.yaml
   - ./echo/ks.yaml
+  - ./cli-proxy-api/ks.yaml
   - ./homepage/ks.yaml
   - ./open-webui/ks.yaml
   - ./searxng/ks.yaml
