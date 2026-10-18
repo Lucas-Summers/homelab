@@ -10,4 +10,5 @@ resources:
   - ./namespace.yaml
   - ./echo/ks.yaml
   - ./homepage/ks.yaml
+  - ./open-webui/ks.yaml
   - ./searxng/ks.yaml
