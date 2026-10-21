@@ -2,16 +2,16 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: linkding
+  name: memos
   namespace: default
 spec:
   hostnames:
-    - links.${SECRET_DOMAIN}
+    - notes.${SECRET_DOMAIN}
   parentRefs:
     - name: envoy-internal
       namespace: network
       sectionName: https
   rules:
     - backendRefs:
-        - name: linkding
-          port: 9090
+        - name: memos
+          port: 5230

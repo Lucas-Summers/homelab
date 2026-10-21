@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: linkding
+  name: memos
   namespace: default
   annotations:
     kustomize.toolkit.fluxcd.io/prune: disabled
