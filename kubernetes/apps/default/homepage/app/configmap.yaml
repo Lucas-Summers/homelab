@@ -15,6 +15,12 @@ data:
         - SearXNG:
             href: https://search.${SECRET_DOMAIN}
             description: Private search
+        - Open WebUI:
+            href: https://chat.${SECRET_DOMAIN}
+            description: AI chat
+        - Linkding:
+            href: https://links.${SECRET_DOMAIN}
+            description: Bookmarks
   bookmarks.yaml: "[]"
   widgets.yaml: "[]"
   kubernetes.yaml: ""

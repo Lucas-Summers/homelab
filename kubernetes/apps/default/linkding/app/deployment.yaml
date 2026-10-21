@@ -1,0 +1,63 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkding
+  namespace: default
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: linkding
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: linkding
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: linkding
+          image: sissbruecker/linkding:1.47.0
+          env:
+            - name: LD_CSRF_TRUSTED_ORIGINS
+              value: https://links.${SECRET_DOMAIN}
+          ports:
+            - name: http
+              containerPort: 9090
+          startupProbe:
+            httpGet:
+              path: /
+              port: http
+            failureThreshold: 60
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 5
+          securityContext:
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              memory: 1Gi
+          volumeMounts:
+            - name: data
+              mountPath: /etc/linkding/data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: linkding

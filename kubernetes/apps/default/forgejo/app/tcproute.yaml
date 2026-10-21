@@ -1,0 +1,15 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: TCPRoute
+metadata:
+  name: forgejo-ssh
+  namespace: default
+spec:
+  parentRefs:
+    - name: envoy-internal
+      namespace: network
+      sectionName: forgejo-ssh
+  rules:
+    - backendRefs:
+        - name: forgejo
+          port: 2222
