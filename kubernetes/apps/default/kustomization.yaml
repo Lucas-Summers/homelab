@@ -14,4 +14,5 @@ resources:
   - ./homepage/ks.yaml
   - ./memos/ks.yaml
   - ./open-webui/ks.yaml
+  - ./overleaf/ks.yaml
   - ./searxng/ks.yaml
