@@ -13,6 +13,7 @@ resources:
   - ./forgejo/ks.yaml
   - ./homepage/ks.yaml
   - ./memos/ks.yaml
+  - ./miniflux/ks.yaml
   - ./open-webui/ks.yaml
   - ./overleaf/ks.yaml
   - ./searxng/ks.yaml
