@@ -7,30 +7,66 @@ metadata:
 data:
   settings.yaml: |-
     title: Homelab
+    layout:
+      Apps:
+        style: row
+        columns: 3
+      Infra:
+        style: row
+        columns: 4
+      Media:
+        style: row
+        columns: 3
   services.yaml: |-
-    - Cluster:
-        - Echo:
-            href: https://echo.${SECRET_DOMAIN}
-            description: Test service
+    - Apps:
         - SearXNG:
+            icon: searxng.svg
             href: https://search.${SECRET_DOMAIN}
             description: Private search
         - Open WebUI:
+            icon: open-webui.svg
             href: https://chat.${SECRET_DOMAIN}
             description: AI chat
         - Memos:
+            icon: memos.svg
             href: https://notes.${SECRET_DOMAIN}
             description: Private notes
         - Forgejo:
+            icon: forgejo.svg
             href: https://git.${SECRET_DOMAIN}
             description: Git hosting
+        - Miniflux:
+            icon: miniflux.svg
+            href: https://feed.${SECRET_DOMAIN}
+            description: RSS reader
+        - Overleaf:
+            icon: overleaf.svg
+            href: https://docs.${SECRET_DOMAIN}
+            description: LaTeX editor
+        - Pi-hole:
+            icon: pi-hole.svg
+            href: https://dns.${SECRET_DOMAIN}
+            description: DNS and ad blocking
+    - Infra:
         - Longhorn:
+            icon: longhorn.svg
             href: https://storage.${SECRET_DOMAIN}
             description: Storage management
-    - Network:
         - Router:
+            icon: mdi-router-wireless
             href: https://network.${SECRET_DOMAIN}
             description: Router administration
+        - Echo:
+            icon: mdi-bullhorn-outline
+            href: https://echo.${SECRET_DOMAIN}
+            description: Test service
+        - Cloudflare:
+            icon: cloudflare.svg
+            href: https://dash.cloudflare.com/
+            description: DNS and tunnels
+    - Media:
+        - Coming soon:
+            description: No media apps yet
   bookmarks.yaml: "[]"
   widgets.yaml: "[]"
   kubernetes.yaml: ""
