@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: uptime-kuma-monitors
+data:
+  website.json: '{"type":"http","name":"Website","url":"https://www.${SECRET_DOMAIN}/","interval":60,"max_retries":3}'
+  bloglite.json: '{"type":"http","name":"Bloglite","url":"https://blog.${SECRET_DOMAIN}/","interval":60,"max_retries":3}'
+  echo.json: '{"type":"http","name":"Echo","url":"https://echo.${SECRET_DOMAIN}/","interval":60,"max_retries":3}'
+  homepage.json: '{"type":"http","name":"Homepage","url":"http://homepage.default.svc.cluster.local:3000/","interval":60,"max_retries":3}'
+  searxng.json: '{"type":"http","name":"SearXNG","url":"http://searxng.default.svc.cluster.local:8080/","interval":60,"max_retries":3}'
+  open-webui.json: '{"type":"http","name":"Open WebUI","url":"http://open-webui.default.svc.cluster.local:8080/","interval":60,"max_retries":3}'
+  memos.json: '{"type":"http","name":"Memos","url":"http://memos.default.svc.cluster.local:5230/","interval":60,"max_retries":3}'
+  forgejo.json: '{"type":"http","name":"Forgejo","url":"http://forgejo.default.svc.cluster.local:3000/","interval":60,"max_retries":3}'
+  miniflux.json: '{"type":"http","name":"Miniflux","url":"http://miniflux.default.svc.cluster.local:8080/","interval":60,"max_retries":3}'
+  overleaf.json: '{"type":"http","name":"Overleaf","url":"http://overleaf.default.svc.cluster.local/","interval":60,"max_retries":3}'
+  pihole.json: '{"type":"http","name":"Pi-hole UI","url":"http://pihole.network.svc.cluster.local/admin/","interval":60,"max_retries":3}'
+  longhorn.json: '{"type":"http","name":"Longhorn UI","url":"http://longhorn-frontend.longhorn-system.svc.cluster.local/","interval":60,"max_retries":3}'
+  cli-proxy-api.json: '{"type":"port","name":"CLI Proxy API","hostname":"cli-proxy-api.default.svc.cluster.local","port":8317,"interval":60,"max_retries":3}'
