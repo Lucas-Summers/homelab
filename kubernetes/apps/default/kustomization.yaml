@@ -18,3 +18,4 @@ resources:
   - ./open-webui/ks.yaml
   - ./overleaf/ks.yaml
   - ./searxng/ks.yaml
+  - ./website/ks.yaml
