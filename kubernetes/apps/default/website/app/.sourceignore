@@ -1,0 +1,2 @@
+# Flux excludes PNG files by default; this favicon is required by Kustomize.
+!favicon.png
