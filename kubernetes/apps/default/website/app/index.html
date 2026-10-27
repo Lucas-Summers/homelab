@@ -24,7 +24,7 @@
       --link-hover: #8839ef;
       background: var(--background);
       color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: system-ui, sans-serif;
       font-size: 16px;
       line-height: 1.5;
     }
@@ -46,7 +46,7 @@
     .page { max-width: 680px; margin: 0 auto; padding: 72px 28px 90px; }
     header { margin-bottom: 34px; }
     h1 { font-size: clamp(2rem, 6vw, 2.6rem); font-weight: 400; line-height: 1.1; letter-spacing: -.035em; margin: 0 0 3px; }
-    .subtitle, nav, .meta, footer { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .76rem; }
+    .subtitle, nav, .meta, footer { font-size: .76rem; }
     .subtitle { color: var(--muted); margin: 0 0 9px; }
     nav { display: flex; flex-wrap: wrap; gap: 0 6px; line-height: 1.9; }
     nav a { white-space: nowrap; }
@@ -121,7 +121,7 @@
       </div>
     </section>
 
-    <footer>plain HTML &amp; CSS · no tracking · <a href="https://www.lucassummers.cc/">www.lucassummers.cc</a></footer>
+    <footer>plain HTML &amp; CSS · no tracking · &nbsp <code>$ curl https://www.lucassummers.cc/</code></footer>
   </main>
 </body>
 </html>
