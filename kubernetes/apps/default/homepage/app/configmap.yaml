@@ -7,6 +7,7 @@ metadata:
 data:
   settings.yaml: |-
     title: Homelab
+    color: slate
     layout:
       Apps:
         style: row
@@ -47,6 +48,10 @@ data:
             icon: pi-hole.svg
             href: https://dns.${SECRET_DOMAIN}
             description: DNS and ad blocking
+        - Bloglite:
+            icon: mdi-post-outline
+            href: https://blog.${SECRET_DOMAIN}
+            description: Blog and notes
     - Infra:
         - Longhorn:
             icon: longhorn.svg
@@ -64,6 +69,10 @@ data:
             icon: cloudflare.svg
             href: https://dash.cloudflare.com/
             description: DNS and tunnels
+        - Uptime Kuma:
+            icon: uptime-kuma.svg
+            href: https://status.${SECRET_DOMAIN}
+            description: Service monitoring
     - Media:
         - Coming soon:
             description: No media apps yet
@@ -71,5 +80,37 @@ data:
   widgets.yaml: "[]"
   kubernetes.yaml: ""
   docker.yaml: ""
-  custom.css: ""
+  custom.css: |-
+    /* Catppuccin Latte (light) and Mocha (dark). Homepage expects RGB channels. */
+    html.light {
+      --color-50: 239 241 245;
+      --color-100: 230 233 239;
+      --color-200: 220 224 232;
+      --color-300: 204 208 218;
+      --color-400: 156 160 176;
+      --color-500: 108 111 133;
+      --color-600: 92 95 119;
+      --color-700: 76 79 105;
+      --color-800: 76 79 105;
+      --color-900: 60 64 82;
+      --color-logo-start: 114 135 253;
+      --color-logo-stop: 30 102 245;
+      --bg-color: var(--color-50);
+    }
+
+    html.dark {
+      --color-50: 245 224 220;
+      --color-100: 205 214 244;
+      --color-200: 205 214 244;
+      --color-300: 186 194 222;
+      --color-400: 166 173 200;
+      --color-500: 147 153 178;
+      --color-600: 108 112 134;
+      --color-700: 69 71 90;
+      --color-800: 30 30 46;
+      --color-900: 17 17 27;
+      --color-logo-start: 180 190 254;
+      --color-logo-stop: 137 180 250;
+      --bg-color: var(--color-800);
+    }
   custom.js: ""
