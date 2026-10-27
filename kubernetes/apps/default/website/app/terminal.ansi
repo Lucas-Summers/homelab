@@ -1,0 +1,59 @@
+[1;36mlucas summers[0m
+engineer / infrastructure / systems
+[2m=====================================[0m
+
+[1;34mhello.[0m
+[2m------[0m
+I build useful software across backend systems, AI-assisted workflows, and
+the web. I like making complex tools feel simple and finding practical ways
+to turn ideas into working systems.
+
+I studied computer science at Cal Poly, concentrating in artificial
+intelligence and machine learning. Outside of work, I enjoy building
+projects and tinkering with my homelab.
+
+[1;34mexperience[0m
+[2m----------[0m
+[1;36mConsulting Intern · Icertis[0m
+[2mJun – Sep 2026 · Bellevue, WA[0m
+  Supported requirements gathering and testing for AI tools used by
+  consulting teams. Prepared business requirements and test scenarios with
+  AI-assisted workflows, incorporated stakeholder feedback, and documented
+  technical workflows for non-technical audiences.
+
+[1;36mSoftware Engineering Intern · BMC Software[0m
+[2mJun – Sep 2025 · Santa Clara, CA[0m
+  Built schema-driven tools for ServiceNow workflows in HelixGPT and an
+  AI-assisted QA system that generated tests from Jira tickets. Used
+  retrieval and feedback to improve test quality.
+
+[1;36mEngineering Intern · West Biofuels[0m
+[2mSummers 2023 & 2024 · Woodland, CA[0m
+  Supported biomass research and worked with LabVIEW, networked sensors,
+  and hardware controllers for a fluidized bed gasifier.
+
+[1;34mselected projects[0m
+[2m-----------------[0m
+[1;36mHomelab[0m
+  Self-hosted Talos Kubernetes cluster managed with Flux, running personal
+  apps with Longhorn storage and Cloudflare-backed networking.
+  ]8;;https://github.com/Lucas-Summers/homelab\[4;34mhttps://github.com/Lucas-Summers/homelab[0m]8;;\
+
+[1;36mML Model Reporting Toolkit[0m
+  Python tools for generating evaluation and comparison reports for
+  scikit-learn models, with configurable metrics, plots, and exports.
+  ]8;;https://github.com/mlreport-calpoly/mlreport\[4;34mhttps://github.com/mlreport-calpoly/mlreport[0m]8;;\
+
+[1;36m2048 AI Strategy Playground[0m
+  Implemented and compared search, simulation, and reinforcement-learning
+  agents for 2048, with a Flask interface for exploring their behavior.
+  ]8;;https://github.com/Lucas-Summers/2048-ai\[4;34mhttps://github.com/Lucas-Summers/2048-ai[0m]8;;\
+
+[1;34mfind me online[0m
+[2m--------------[0m
+blog      ]8;;https://blog.lucassummers.cc/\[4;34mhttps://blog.lucassummers.cc/[0m]8;;\
+linkedin  ]8;;https://www.linkedin.com/in/lucas-a-summers/\[4;34mhttps://www.linkedin.com/in/lucas-a-summers/[0m]8;;\
+github    ]8;;https://github.com/Lucas-Summers\[4;34mhttps://github.com/Lucas-Summers[0m]8;;\
+email     ]8;;mailto:lucas.summers.dev@gmail.com\[4;34mlucas.summers.dev@gmail.com[0m]8;;\
+
+[2mplain text · no tracking · [0m]8;;https://www.lucassummers.cc/\[4;34mhttps://www.lucassummers.cc/[0m]8;;\

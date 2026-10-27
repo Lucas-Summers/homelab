@@ -6,7 +6,7 @@ configMapGenerator:
     files:
       - index.html
       - favicon.png
-      - terminal.txt
+      - terminal.ansi
   - name: website-nginx
     files:
       - default.conf
