@@ -1,0 +1,59 @@
+lucas summers
+engineer / infrastructure / systems
+=====================================
+
+hello.
+------
+I build useful software across backend systems, AI-assisted workflows, and
+the web. I like making complex tools feel simple and finding practical ways
+to turn ideas into working systems.
+
+I studied computer science at Cal Poly, concentrating in artificial
+intelligence and machine learning. Outside of work, I enjoy building
+projects and tinkering with my homelab.
+
+experience
+----------
+Consulting Intern · Icertis
+Jun – Sep 2026 · Bellevue, WA
+  Supported requirements gathering and testing for AI tools used by
+  consulting teams. Prepared business requirements and test scenarios with
+  AI-assisted workflows, incorporated stakeholder feedback, and documented
+  technical workflows for non-technical audiences.
+
+Software Engineering Intern · BMC Software
+Jun – Sep 2025 · Santa Clara, CA
+  Built schema-driven tools for ServiceNow workflows in HelixGPT and an
+  AI-assisted QA system that generated tests from Jira tickets. Used
+  retrieval and feedback to improve test quality.
+
+Engineering Intern · West Biofuels
+Summers 2023 & 2024 · Woodland, CA
+  Supported biomass research and worked with LabVIEW, networked sensors,
+  and hardware controllers for a fluidized bed gasifier.
+
+selected projects
+-----------------
+Homelab
+  Self-hosted Talos Kubernetes cluster managed with Flux, running personal
+  apps with Longhorn storage and Cloudflare-backed networking.
+  https://github.com/Lucas-Summers/homelab
+
+ML Model Reporting Toolkit
+  Python tools for generating evaluation and comparison reports for
+  scikit-learn models, with configurable metrics, plots, and exports.
+  https://github.com/mlreport-calpoly/mlreport
+
+2048 AI Strategy Playground
+  Implemented and compared search, simulation, and reinforcement-learning
+  agents for 2048, with a Flask interface for exploring their behavior.
+  https://github.com/Lucas-Summers/2048-ai
+
+find me online
+--------------
+blog      https://blog.lucassummers.cc/
+linkedin  https://www.linkedin.com/in/lucas-a-summers/
+github    https://github.com/Lucas-Summers
+email     lucas.summers.dev@gmail.com
+
+plain text · no tracking · https://www.lucassummers.cc/

@@ -5,6 +5,11 @@ configMapGenerator:
   - name: website-content
     files:
       - index.html
+      - favicon.png
+      - terminal.txt
+  - name: website-nginx
+    files:
+      - default.conf
 resources:
   - ./deployment.yaml
   - ./service.yaml

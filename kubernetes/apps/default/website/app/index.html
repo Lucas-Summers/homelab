@@ -9,38 +9,58 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.lucassummers.cc/">
   <link rel="canonical" href="https://www.lucassummers.cc/">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
   <title>Lucas Summers</title>
   <style>
     :root {
       color-scheme: light;
-      background: #faf8f4;
-      color: #242320;
+      --background: #eff1f5;
+      --text: #4c4f69;
+      --muted: #6c6f85;
+      --border: #bcc0cc;
+      --link: #1e66f5;
+      --link-hover: #8839ef;
+      background: var(--background);
+      color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
       font-size: 16px;
       line-height: 1.5;
     }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --background: #1e1e2e;
+        --text: #cdd6f4;
+        --muted: #a6adc8;
+        --border: #45475a;
+        --link: #89b4fa;
+        --link-hover: #cba6f7;
+      }
+    }
     * { box-sizing: border-box; }
     body { margin: 0; }
-    a { color: #354b78; text-underline-offset: 2px; }
-    a:hover, a:focus-visible { color: #182c55; }
+    a { color: var(--link); text-underline-offset: 2px; }
+    a:hover, a:focus-visible { color: var(--link-hover); }
     .page { max-width: 680px; margin: 0 auto; padding: 72px 28px 90px; }
     header { margin-bottom: 34px; }
     h1 { font-size: clamp(2rem, 6vw, 2.6rem); font-weight: 400; line-height: 1.1; letter-spacing: -.035em; margin: 0 0 3px; }
     .subtitle, nav, .meta, footer { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .76rem; }
-    .subtitle { color: #66645f; margin: 0 0 9px; }
+    .subtitle { color: var(--muted); margin: 0 0 9px; }
     nav { display: flex; flex-wrap: wrap; gap: 0 6px; line-height: 1.9; }
     nav a { white-space: nowrap; }
-    section { border-top: 1px solid #d9d5cf; padding: 17px 0 21px; }
+    section { border-top: 1px solid var(--border); padding: 17px 0 21px; }
     h2 { font-size: 1.18rem; line-height: 1.3; margin: 0 0 10px; }
     p { margin: 0 0 10px; }
     p:last-child { margin-bottom: 0; }
     .entry { margin-bottom: 19px; }
     .entry:last-child { margin-bottom: 0; }
     .entry h3 { font-size: 1rem; margin: 0; }
-    .entry .meta { color: #66645f; margin: 0 0 4px; }
+    .entry .meta { color: var(--muted); margin: 0 0 4px; }
     .entry p { margin: 0 0 5px; }
     .links { font-size: .82rem; }
-    footer { border-top: 1px solid #d9d5cf; padding-top: 16px; color: #66645f; }
+    footer { border-top: 1px solid var(--border); padding-top: 16px; color: var(--muted); }
     @media (max-width: 600px) { .page { padding: 38px 22px 64px; } }
   </style>
 </head>
@@ -48,12 +68,10 @@
   <main class="page">
     <header>
       <h1>lucas summers</h1>
-      <p class="subtitle">software engineer / AI / systems</p>
+      <p class="subtitle">engineer / infrastructure / systems</p>
       <nav aria-label="Main navigation">
-        <a href="#about">about</a> ·
-        <a href="#experience">experience</a> ·
-        <a href="#projects">projects</a> ·
-        <a href="https://blog.lucassummers.cc/">notes</a> ·
+        <a href="https://blog.lucassummers.cc/">blog</a> ·
+        <a href="https://www.linkedin.com/in/lucas-a-summers/">linkedin</a> ·
         <a href="https://github.com/Lucas-Summers">github</a> ·
         <a href="mailto:lucas.summers.dev@gmail.com">email</a>
       </nav>
@@ -63,11 +81,15 @@
       <h2 id="about-title">hello.</h2>
       <p>I build useful software across backend systems, AI-assisted workflows, and the web. I like making complex tools feel simple and finding practical ways to turn ideas into working systems.</p>
       <p>I studied computer science at Cal Poly, concentrating in artificial intelligence and machine learning. Outside of work, I enjoy building projects and tinkering with my homelab.</p>
-      <p class="links"><a href="https://www.linkedin.com/in/lucas-a-summers/">more about me</a> · <a href="https://blog.lucassummers.cc/">read my notes</a></p>
     </section>
 
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title">experience</h2>
+      <div class="entry">
+        <h3>Consulting Intern · Icertis</h3>
+        <p class="meta">Jun – Sep 2026 · Bellevue, WA</p>
+        <p>Supported requirements gathering and testing for AI tools used by consulting teams. Prepared business requirements and test scenarios with AI-assisted workflows, incorporated stakeholder feedback, and documented technical workflows for non-technical audiences.</p>
+      </div>
       <div class="entry">
         <h3>Software Engineering Intern · BMC Software</h3>
         <p class="meta">Jun – Sep 2025 · Santa Clara, CA</p>
@@ -83,6 +105,11 @@
     <section id="projects" aria-labelledby="projects-title">
       <h2 id="projects-title">selected projects</h2>
       <div class="entry">
+        <h3>Homelab</h3>
+        <p>Self-hosted Talos Kubernetes cluster managed with Flux, running personal apps with Longhorn storage and Cloudflare-backed networking.</p>
+        <p class="links"><a href="https://github.com/Lucas-Summers/homelab">source code</a></p>
+      </div>
+      <div class="entry">
         <h3>ML Model Reporting Toolkit</h3>
         <p>Python tools for generating evaluation and comparison reports for scikit-learn models, with configurable metrics, plots, and exports.</p>
         <p class="links"><a href="https://github.com/mlreport-calpoly/mlreport">source code</a></p>
@@ -94,13 +121,7 @@
       </div>
     </section>
 
-    <section id="writing" aria-labelledby="writing-title">
-      <h2 id="writing-title">notes</h2>
-      <p>Writing about projects, things I learn, and whatever else seems worth keeping.</p>
-      <p class="links"><a href="https://blog.lucassummers.cc/">visit the blog</a></p>
-    </section>
-
-    <footer>plain HTML &amp; CSS · no tracking · <a href="https://github.com/Lucas-Summers">github</a></footer>
+    <footer>plain HTML &amp; CSS · no tracking · <a href="https://www.lucassummers.cc/">www.lucassummers.cc</a></footer>
   </main>
 </body>
 </html>
