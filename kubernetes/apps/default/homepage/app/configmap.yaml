@@ -36,6 +36,10 @@ data:
             icon: mdi-calendar-sync
             href: https://dav.${SECRET_DOMAIN}
             description: Calendars and contacts
+        - JobOps:
+            icon: mdi-briefcase-search-outline
+            href: https://jobs.${SECRET_DOMAIN}
+            description: Private job search
         - Forgejo:
             icon: forgejo.svg
             href: https://git.${SECRET_DOMAIN}
