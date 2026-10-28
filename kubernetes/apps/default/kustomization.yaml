@@ -17,7 +17,7 @@ resources:
   - ./memos/ks.yaml
   - ./miniflux/ks.yaml
   - ./open-webui/ks.yaml
-  - ./overleaf/ks.yaml
+
   - ./radicale/ks.yaml
   - ./reactive-resume/ks.yaml
   - ./searxng/ks.yaml

@@ -13,7 +13,7 @@ data:
   memos.json: '{"type":"http","name":"Memos","url":"http://memos.default.svc.cluster.local:5230/","interval":60,"max_retries":3}'
   forgejo.json: '{"type":"http","name":"Forgejo","url":"http://forgejo.default.svc.cluster.local:3000/","interval":60,"max_retries":3}'
   miniflux.json: '{"type":"http","name":"Miniflux","url":"http://miniflux.default.svc.cluster.local:8080/","interval":60,"max_retries":3}'
-  overleaf.json: '{"type":"http","name":"Overleaf","url":"http://overleaf.default.svc.cluster.local/","interval":60,"max_retries":3}'
+
   pihole.json: '{"type":"http","name":"Pi-hole UI","url":"http://pihole.network.svc.cluster.local/admin/","interval":60,"max_retries":3}'
   longhorn.json: '{"type":"http","name":"Longhorn UI","url":"http://longhorn-frontend.longhorn-system.svc.cluster.local/","interval":60,"max_retries":3}'
   cli-proxy-api.json: '{"type":"port","name":"CLI Proxy API","hostname":"cli-proxy-api.default.svc.cluster.local","port":8317,"interval":60,"max_retries":3}'

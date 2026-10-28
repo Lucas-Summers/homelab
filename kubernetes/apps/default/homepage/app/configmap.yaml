@@ -48,10 +48,7 @@ data:
             icon: miniflux.svg
             href: https://feed.${SECRET_DOMAIN}
             description: RSS reader
-        - Overleaf:
-            icon: overleaf.svg
-            href: https://docs.${SECRET_DOMAIN}
-            description: LaTeX editor
+
         - Pi-hole:
             icon: pi-hole.svg
             href: https://dns.${SECRET_DOMAIN}
