@@ -32,6 +32,10 @@ data:
             icon: memos.svg
             href: https://notes.${SECRET_DOMAIN}
             description: Private notes
+        - Radicale:
+            icon: mdi-calendar-sync
+            href: https://dav.${SECRET_DOMAIN}
+            description: Calendars and contacts
         - Forgejo:
             icon: forgejo.svg
             href: https://git.${SECRET_DOMAIN}
