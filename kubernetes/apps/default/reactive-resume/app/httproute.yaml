@@ -5,7 +5,7 @@ metadata:
   name: reactive-resume
 spec:
   hostnames:
-    - resume.${SECRET_DOMAIN}
+    - jobs.${SECRET_DOMAIN}
   parentRefs:
     - name: envoy-internal
       namespace: network

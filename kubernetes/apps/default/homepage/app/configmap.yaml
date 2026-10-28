@@ -36,13 +36,9 @@ data:
             icon: mdi-calendar-sync
             href: https://dav.${SECRET_DOMAIN}
             description: Calendars and contacts
-        - JobOps:
-            icon: mdi-briefcase-search-outline
-            href: https://jobs.${SECRET_DOMAIN}
-            description: Private job search
         - Reactive Resume:
             icon: mdi-file-account-outline
-            href: https://resume.${SECRET_DOMAIN}
+            href: https://jobs.${SECRET_DOMAIN}
             description: Private resume builder
         - Forgejo:
             icon: forgejo.svg

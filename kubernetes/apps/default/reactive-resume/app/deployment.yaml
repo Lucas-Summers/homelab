@@ -31,7 +31,9 @@ spec:
           image: ghcr.io/reactive-resume/reactive-resume:v6.0.7
           env:
             - name: APP_URL
-              value: https://resume.${SECRET_DOMAIN}
+              value: https://jobs.${SECRET_DOMAIN}
+            - name: FLAG_DISABLE_SIGNUPS
+              value: "true"
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
