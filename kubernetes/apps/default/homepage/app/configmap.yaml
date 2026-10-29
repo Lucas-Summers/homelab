@@ -79,6 +79,26 @@ data:
             icon: jellyfin.svg
             href: https://tv.${SECRET_DOMAIN}
             description: Private media library
+        - Seerr:
+            icon: overseerr.svg
+            href: https://requests.${SECRET_DOMAIN}
+            description: Request movies and shows
+        - Radarr:
+            icon: radarr.svg
+            href: https://radarr.${SECRET_DOMAIN}
+            description: Manage movies
+        - Sonarr:
+            icon: sonarr.svg
+            href: https://sonarr.${SECRET_DOMAIN}
+            description: Manage shows
+        - Prowlarr:
+            icon: prowlarr.svg
+            href: https://prowlarr.${SECRET_DOMAIN}
+            description: Manage indexers
+        - Bazarr:
+            icon: bazarr.svg
+            href: https://bazarr.${SECRET_DOMAIN}
+            description: Manage subtitles
   bookmarks.yaml: "[]"
   widgets.yaml: "[]"
   kubernetes.yaml: ""
