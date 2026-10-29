@@ -75,8 +75,10 @@ data:
             href: https://status.${SECRET_DOMAIN}
             description: Service monitoring
     - Media:
-        - Coming soon:
-            description: No media apps yet
+        - Jellyfin:
+            icon: jellyfin.svg
+            href: https://tv.${SECRET_DOMAIN}
+            description: Private media library
   bookmarks.yaml: "[]"
   widgets.yaml: "[]"
   kubernetes.yaml: ""
