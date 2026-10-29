@@ -18,6 +18,12 @@ spec:
               app.kubernetes.io/component: proxy
               app.kubernetes.io/name: envoy
               gateway.envoyproxy.io/owning-gateway-name: envoy-internal
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: radarr
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: sonarr
       ports:
         - protocol: TCP
           port: 9696
