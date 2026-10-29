@@ -1,0 +1,8 @@
+---
+apiVersion: v1alpha1
+kind: ExistingVolumeConfig
+name: media
+# Match the existing ext4 partition on think2's USB SSD, never the system disk.
+discovery:
+  volumeSelector:
+    match: volume.uuid == "a8a3505e-10bc-4c87-86de-c380a60e9cc6" && disk.transport == "usb"
