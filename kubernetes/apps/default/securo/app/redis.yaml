@@ -30,6 +30,24 @@ spec:
       automountServiceAccountToken: false
       enableServiceLinks: false
       terminationGracePeriodSeconds: 60
+      initContainers:
+        - name: fix-data-ownership
+          image: redis:8-alpine
+          command: ["sh", "-ec", "chown -R redis:redis /data"]
+          securityContext:
+            runAsUser: 0
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              memory: 128Mi
+          volumeMounts:
+            - name: data
+              mountPath: /data
       containers:
         - name: redis
           image: redis:8-alpine
