@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: securo-backend
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: securo-backend
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: securo-frontend
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: securo-frontend
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http

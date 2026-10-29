@@ -40,6 +40,10 @@ data:
             icon: mdi-file-account-outline
             href: https://jobs.${SECRET_DOMAIN}
             description: Private resume builder
+        - Securo:
+            icon: mdi-finance
+            href: https://finance.${SECRET_DOMAIN}
+            description: Private finances
         - Forgejo:
             icon: forgejo.svg
             href: https://git.${SECRET_DOMAIN}
@@ -48,15 +52,10 @@ data:
             icon: miniflux.svg
             href: https://feed.${SECRET_DOMAIN}
             description: RSS reader
-
         - Pi-hole:
             icon: pi-hole.svg
             href: https://dns.${SECRET_DOMAIN}
             description: DNS and ad blocking
-        - Bloglite:
-            icon: mdi-post-outline
-            href: https://blog.${SECRET_DOMAIN}
-            description: Blog and notes
     - Infra:
         - Longhorn:
             icon: longhorn.svg
