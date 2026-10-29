@@ -20,7 +20,7 @@ resources:
 
   - ./radicale/ks.yaml
   - ./reactive-resume/ks.yaml
-  - ./securo/ks.yaml
+
   - ./searxng/ks.yaml
   - ./uptime-kuma/ks.yaml
   - ./website/ks.yaml

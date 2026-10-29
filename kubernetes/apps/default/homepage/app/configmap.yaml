@@ -40,10 +40,7 @@ data:
             icon: mdi-file-account-outline
             href: https://jobs.${SECRET_DOMAIN}
             description: Private resume builder
-        - Securo:
-            icon: mdi-finance
-            href: https://finance.${SECRET_DOMAIN}
-            description: Private finances
+
         - Forgejo:
             icon: forgejo.svg
             href: https://git.${SECRET_DOMAIN}
