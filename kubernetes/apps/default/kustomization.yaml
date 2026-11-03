@@ -19,6 +19,7 @@ resources:
   - ./bazarr/ks.yaml
   - ./prowlarr/ks.yaml
   - ./seerr/ks.yaml
+  - ./qbittorrent/ks.yaml
 
   - ./memos/ks.yaml
   - ./miniflux/ks.yaml

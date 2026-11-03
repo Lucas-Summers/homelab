@@ -1,0 +1,205 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: qbittorrent
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: qbittorrent
+    spec:
+      automountServiceAccountToken: false
+      enableServiceLinks: false
+      dnsPolicy: None
+      dnsConfig:
+        nameservers: [127.0.0.1]
+      nodeSelector:
+        kubernetes.io/hostname: think2
+      terminationGracePeriodSeconds: 60
+      initContainers:
+        - name: gluetun
+          image: qmcgaw/gluetun:v3.41.3
+          restartPolicy: Always
+          env:
+            - name: VPN_SERVICE_PROVIDER
+              value: custom
+            - name: VPN_TYPE
+              value: wireguard
+            - name: WIREGUARD_ENDPOINT_IP
+              value: 184.75.221.61
+            - name: WIREGUARD_ENDPOINT_PORT
+              value: "1637"
+            - name: WIREGUARD_PUBLIC_KEY
+              value: PyLCXAQT8KkM4T+dUsOQfn+Ub3pGxfGlxkIApuig+hk=
+            - name: WIREGUARD_ADDRESSES
+              value: 10.144.169.76/32
+            - name: WIREGUARD_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: qbittorrent-vpn
+                  key: WIREGUARD_PRIVATE_KEY
+            - name: WIREGUARD_PRESHARED_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: qbittorrent-vpn
+                  key: WIREGUARD_PRESHARED_KEY
+            - name: FIREWALL_INPUT_PORTS
+              value: "8080,9999"
+            - name: FIREWALL_OUTBOUND_SUBNETS
+              value: 10.42.0.0/16
+            - name: HEALTH_SERVER_ADDRESS
+              value: :9999
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              add: [NET_ADMIN]
+              drop: [ALL]
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              memory: 512Mi
+          volumeMounts:
+            - name: tun
+              mountPath: /dev/net/tun
+          startupProbe:
+            httpGet:
+              path: /
+              port: 9999
+            periodSeconds: 10
+            failureThreshold: 60
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 9999
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 9999
+            periodSeconds: 30
+        - name: check-media-mount
+          image: busybox:1.36
+          command: ["/bin/sh", "-ec"]
+          args:
+            - |
+              if [ "$(stat -c %d /data)" = "$(stat -c %d /host-mnt)" ]; then
+                echo 'Media SSD is not mounted on think2; refusing to use the system disk' >&2
+                exit 1
+              fi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              memory: 64Mi
+          volumeMounts:
+            - name: media
+              mountPath: /data
+              readOnly: true
+            - name: host-mnt
+              mountPath: /host-mnt
+              readOnly: true
+        - name: prepare-config
+          image: busybox:1.36
+          command: ["/bin/sh", "-ec"]
+          args:
+            - |
+              mkdir -p /config/qBittorrent
+              if [ ! -e /config/qBittorrent/qBittorrent.conf ]; then
+                cat > /config/qBittorrent/qBittorrent.conf <<'EOF'
+              [BitTorrent]
+              Session\Interface=tun0
+              EOF
+              fi
+              chown 1000:1000 /config /config/qBittorrent /config/qBittorrent/qBittorrent.conf
+          securityContext:
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16Mi
+            limits:
+              memory: 64Mi
+          volumeMounts:
+            - name: config
+              mountPath: /config
+      containers:
+        - name: qbittorrent
+          image: lscr.io/linuxserver/qbittorrent:5.3.0_v2.1.2-ls485
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: UMASK
+              value: "002"
+            - name: TZ
+              value: UTC
+            - name: WEBUI_PORT
+              value: "8080"
+          ports:
+            - name: http
+              containerPort: 8080
+          startupProbe:
+            tcpSocket:
+              port: http
+            periodSeconds: 10
+            failureThreshold: 60
+          readinessProbe:
+            tcpSocket:
+              port: http
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: http
+            periodSeconds: 30
+          securityContext:
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              memory: 2Gi
+          volumeMounts:
+            - name: config
+              mountPath: /config
+            - name: media
+              mountPath: /data
+      volumes:
+        - name: config
+          persistentVolumeClaim:
+            claimName: qbittorrent-config
+        - name: media
+          hostPath:
+            path: /var/mnt/media
+            type: Directory
+        - name: host-mnt
+          hostPath:
+            path: /var/mnt
+            type: Directory
+        - name: tun
+          hostPath:
+            path: /dev/net/tun
+            type: CharDevice

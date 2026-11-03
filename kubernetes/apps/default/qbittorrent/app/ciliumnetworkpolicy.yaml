@@ -1,0 +1,16 @@
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: qbittorrent-vpn-egress
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: qbittorrent
+  egress:
+    - toCIDR:
+        - 184.75.221.61/32
+      toPorts:
+        - ports:
+            - port: "1637"
+              protocol: UDP
