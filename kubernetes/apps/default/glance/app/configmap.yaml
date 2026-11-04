@@ -1,0 +1,131 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: glance
+  namespace: default
+data:
+  glance.yml: |-
+    branding:
+      app-name: Homelab
+      logo-text: H
+    pages:
+      - name: Homelab
+        width: wide
+        columns:
+          - size: full
+            widgets:
+              - type: search
+                search-engine: https://search.${SECRET_DOMAIN}/search?q={QUERY}
+                new-tab: true
+              - type: split-column
+                max-columns: 3
+                widgets:
+                  - type: bookmarks
+                    title: Apps
+                    groups:
+                      - links:
+                          - title: SearXNG
+                            url: https://search.${SECRET_DOMAIN}
+                            description: Private search
+                            icon: di:searxng
+                          - title: Open WebUI
+                            url: https://chat.${SECRET_DOMAIN}
+                            description: AI chat
+                            icon: di:open-webui
+                          - title: Memos
+                            url: https://notes.${SECRET_DOMAIN}
+                            description: Private notes
+                            icon: di:memos
+                          - title: Radicale
+                            url: https://dav.${SECRET_DOMAIN}
+                            description: Calendars and contacts
+                            icon: mdi:calendar-sync
+                          - title: Reactive Resume
+                            url: https://jobs.${SECRET_DOMAIN}
+                            description: Private resume builder
+                            icon: mdi:file-account-outline
+                          - title: Forgejo
+                            url: https://git.${SECRET_DOMAIN}
+                            description: Git hosting
+                            icon: di:forgejo
+                          - title: Miniflux
+                            url: https://feed.${SECRET_DOMAIN}
+                            description: RSS reader
+                            icon: di:miniflux
+                          - title: Pi-hole
+                            url: https://dns.${SECRET_DOMAIN}
+                            description: DNS and ad blocking
+                            icon: di:pihole
+                          - title: Website
+                            url: https://www.${SECRET_DOMAIN}
+                            description: Public website
+                            icon: mdi:web
+                          - title: Blog
+                            url: https://blog.${SECRET_DOMAIN}
+                            description: Blog
+                            icon: mdi:post
+                  - type: bookmarks
+                    title: Infra
+                    groups:
+                      - links:
+                          - title: Headlamp
+                            url: https://cluster.${SECRET_DOMAIN}
+                            description: Kubernetes dashboard
+                            icon: di:headlamp
+                          - title: Longhorn
+                            url: https://storage.${SECRET_DOMAIN}
+                            description: Storage management
+                            icon: di:longhorn
+                          - title: Router
+                            url: https://network.${SECRET_DOMAIN}
+                            description: Router administration
+                            icon: mdi:router-wireless
+                          - title: Echo
+                            url: https://echo.${SECRET_DOMAIN}
+                            description: Test service
+                            icon: mdi:bullhorn-outline
+                          - title: Cloudflare
+                            url: https://dash.cloudflare.com/
+                            description: DNS and tunnels
+                            icon: di:cloudflare
+                          - title: Uptime Kuma
+                            url: https://status.${SECRET_DOMAIN}
+                            description: Service monitoring
+                            icon: di:uptime-kuma
+                          - title: AirVPN
+                            url: https://airvpn.org/status/
+                            description: VPN provider status
+                            icon: mdi:shield-lock-outline
+                  - type: bookmarks
+                    title: Media
+                    groups:
+                      - links:
+                          - title: Jellyfin
+                            url: https://tv.${SECRET_DOMAIN}
+                            description: Private media library
+                            icon: di:jellyfin
+                          - title: Seerr
+                            url: https://requests.${SECRET_DOMAIN}
+                            description: Request movies and shows
+                            icon: di:overseerr
+                          - title: Radarr
+                            url: https://radarr.${SECRET_DOMAIN}
+                            description: Manage movies
+                            icon: di:radarr
+                          - title: Sonarr
+                            url: https://sonarr.${SECRET_DOMAIN}
+                            description: Manage shows
+                            icon: di:sonarr
+                          - title: Prowlarr
+                            url: https://prowlarr.${SECRET_DOMAIN}
+                            description: Manage indexers
+                            icon: di:prowlarr
+                          - title: Bazarr
+                            url: https://bazarr.${SECRET_DOMAIN}
+                            description: Manage subtitles
+                            icon: di:bazarr
+                          - title: qBittorrent
+                            url: https://torrents.${SECRET_DOMAIN}
+                            description: Manage downloads
+                            icon: di:qbittorrent

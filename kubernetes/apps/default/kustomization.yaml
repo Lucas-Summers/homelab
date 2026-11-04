@@ -12,7 +12,7 @@ resources:
   - ./echo/ks.yaml
   - ./cli-proxy-api/ks.yaml
   - ./forgejo/ks.yaml
-  - ./homepage/ks.yaml
+  - ./glance/ks.yaml
   - ./jellyfin/ks.yaml
   - ./radarr/ks.yaml
   - ./sonarr/ks.yaml

@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: homepage
+  name: glance
   namespace: default
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: homepage
+    app.kubernetes.io/name: glance
   ports:
     - name: http
-      port: 3000
+      port: 8080
       targetPort: http

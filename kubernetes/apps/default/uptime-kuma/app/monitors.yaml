@@ -7,7 +7,7 @@ data:
   website.json: '{"type":"http","name":"Website","url":"https://www.${SECRET_DOMAIN}/","interval":60,"max_retries":3}'
   bloglite.json: '{"type":"http","name":"Bloglite","url":"https://blog.${SECRET_DOMAIN}/","interval":60,"max_retries":3}'
   echo.json: '{"type":"http","name":"Echo","url":"https://echo.${SECRET_DOMAIN}/","interval":60,"max_retries":3}'
-  homepage.json: '{"type":"http","name":"Homepage","url":"http://homepage.default.svc.cluster.local:3000/","interval":60,"max_retries":3}'
+  glance.json: '{"type":"http","name":"Glance","url":"http://glance.default.svc.cluster.local:8080/","interval":60,"max_retries":3}'
   searxng.json: '{"type":"http","name":"SearXNG","url":"http://searxng.default.svc.cluster.local:8080/","interval":60,"max_retries":3}'
   open-webui.json: '{"type":"http","name":"Open WebUI","url":"http://open-webui.default.svc.cluster.local:8080/","interval":60,"max_retries":3}'
   memos.json: '{"type":"http","name":"Memos","url":"http://memos.default.svc.cluster.local:5230/","interval":60,"max_retries":3}'
