@@ -53,10 +53,6 @@ data:
                             url: https://feed.${SECRET_DOMAIN}
                             description: RSS reader
                             icon: di:miniflux
-                          - title: Pi-hole
-                            url: https://dns.${SECRET_DOMAIN}
-                            description: DNS and ad blocking
-                            icon: di:pihole
                           - title: Website
                             url: https://www.${SECRET_DOMAIN}
                             description: Public website
@@ -97,6 +93,10 @@ data:
                             url: https://airvpn.org/status/
                             description: VPN provider status
                             icon: mdi:shield-lock-outline
+                          - title: Pi-hole
+                            url: https://dns.${SECRET_DOMAIN}
+                            description: DNS and ad blocking
+                            icon: di:pi-hole
                   - type: bookmarks
                     title: Media
                     groups:
