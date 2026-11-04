@@ -54,6 +54,10 @@ data:
             href: https://dns.${SECRET_DOMAIN}
             description: DNS and ad blocking
     - Infra:
+        - Headlamp:
+            icon: headlamp.svg
+            href: https://cluster.${SECRET_DOMAIN}
+            description: Kubernetes dashboard
         - Longhorn:
             icon: longhorn.svg
             href: https://storage.${SECRET_DOMAIN}
@@ -74,6 +78,10 @@ data:
             icon: uptime-kuma.svg
             href: https://status.${SECRET_DOMAIN}
             description: Service monitoring
+        - AirVPN:
+            icon: mdi-shield-lock-outline
+            href: https://airvpn.org/status/
+            description: VPN provider status
     - Media:
         - Jellyfin:
             icon: jellyfin.svg
@@ -99,6 +107,10 @@ data:
             icon: bazarr.svg
             href: https://bazarr.${SECRET_DOMAIN}
             description: Manage subtitles
+        - qBittorrent:
+            icon: qbittorrent.svg
+            href: https://torrents.${SECRET_DOMAIN}
+            description: Manage downloads
   bookmarks.yaml: "[]"
   widgets.yaml: "[]"
   kubernetes.yaml: ""
