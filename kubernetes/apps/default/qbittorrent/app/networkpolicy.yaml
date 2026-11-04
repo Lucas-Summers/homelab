@@ -24,6 +24,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: sonarr
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: lidarr
       ports:
         - protocol: TCP
           port: 8080

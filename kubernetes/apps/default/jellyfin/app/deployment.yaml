@@ -36,7 +36,7 @@ spec:
                 echo 'Media SSD is not mounted on think2; refusing to use the system disk' >&2
                 exit 1
               fi
-              mkdir -p /data/media/movies /data/media/tv /data/torrents/movies /data/torrents/tv
+              mkdir -p /data/media/movies /data/media/tv /data/media/music /data/torrents/movies /data/torrents/tv /data/torrents/music
               chown -R 1000:1000 /data/media /data/torrents
           securityContext:
             runAsNonRoot: false

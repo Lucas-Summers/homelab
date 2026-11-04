@@ -113,6 +113,10 @@ data:
                             url: https://radarr.${SECRET_DOMAIN}
                             description: Manage movies
                             icon: di:radarr
+                          - title: Lidarr
+                            url: https://lidarr.${SECRET_DOMAIN}
+                            description: Manage music
+                            icon: di:lidarr
                           - title: Sonarr
                             url: https://sonarr.${SECRET_DOMAIN}
                             description: Manage shows
