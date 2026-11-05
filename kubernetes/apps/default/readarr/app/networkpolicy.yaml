@@ -2,11 +2,11 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: lazylibrarian
+  name: readarr
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: lazylibrarian
+      app.kubernetes.io/name: readarr
   policyTypes: [Ingress]
   ingress:
     - from:
@@ -23,4 +23,4 @@ spec:
               app.kubernetes.io/name: prowlarr
       ports:
         - protocol: TCP
-          port: 5299
+          port: 8787

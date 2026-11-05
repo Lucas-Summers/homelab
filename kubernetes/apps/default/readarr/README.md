@@ -1,0 +1,16 @@
+# Faustvii/Readarr → qBittorrent
+
+This is the [Faustvii Readarr fork](https://github.com/Faustvii/Readarr), pinned to `ghcr.io/faustvii/readarr:0.10.0`. It runs on `think2` (`amd64`) with its own Longhorn config PVC. The ebook library is `/data/media/books` and qBittorrent downloads go to `/data/torrents/books`. The deployment checks that the media SSD is mounted before preparing those folders.
+
+The upstream image runs as `nobody` by default and does not support LinuxServer's `PUID`/`PGID` settings. Kubernetes runs it as UID/GID 1000 with `fsGroup: 1000` so its config PVC and shared media SSD are writable.
+
+After Flux deploys the manifests:
+
+1. Open `https://readarr.${SECRET_DOMAIN}` and set up authentication at first run. Set the root folder to `/data/media/books`; choose an **ebook** quality profile. A single Readarr instance cannot manage both the ebook and audiobook edition of the same title. An audiobook instance would need a separate config PVC, `/data/media/audiobooks` root folder and download category.
+2. In qBittorrent create the `readarr` category with save path `/data/torrents/books`. In Readarr **Settings → Download Clients**, add qBittorrent using `qbittorrent.default.svc.cluster.local`, port `8080`, existing Web UI credentials and category `readarr`. If the old `lazylibrarian` category already uses this download folder, remove or stop using that category after any active downloads finish. Enable hardlinks under **Settings → Media Management** (advanced options) if you want to keep seeding without duplicating the files; both paths are on the same filesystem.
+3. In Prowlarr **Settings → Apps**, add the **Readarr** app with URL `http://readarr.default.svc.cluster.local:8787`, Readarr's API key from **Settings → General**, and Prowlarr server URL `http://prowlarr.default.svc.cluster.local:9696`. Test and sync book indexers. The fork keeps Readarr's API, but verify the integration's **Test** and **Sync App Indexers** succeed with your Prowlarr version.
+4. This fork uses the shared [rreading-glasses](https://github.com/blampe/rreading-glasses) Goodreads-compatible metadata service. If searching authors fails, check **Settings → Development** (`/settings/development`) and set **Metadata Provider Source** to `https://api.bookinfo.pro`. The hosted service receives metadata queries; self-hosting it requires a separate service and PostgreSQL. No metadata credentials are required for the hosted Goodreads-compatible endpoint.
+
+If Readarr was already configured with `/data/media/readarr/books` or `/data/torrents/readarr`, update its root folder and qBittorrent category path manually; this deployment does not move existing files. If LazyLibrarian already downloaded books into `/data/media/books`, review them before importing them into Readarr. Removing LazyLibrarian's manifests does not delete its config PVC (`lazylibrarian-config` has pruning disabled) or any files on the media SSD.
+
+The manifests don't configure app credentials, qBittorrent, Prowlarr or a reader application. Keep secrets in each app's persistent configuration, not Git. Only qBittorrent runs behind the VPN; Readarr needs normal outbound access for metadata and Prowlarr indexer proxy requests.

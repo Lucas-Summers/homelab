@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: lazylibrarian
+  name: readarr
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: lazylibrarian
+    app.kubernetes.io/name: readarr
   ports:
     - name: http
-      port: 5299
+      port: 8787
       targetPort: http

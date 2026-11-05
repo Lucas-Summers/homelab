@@ -15,7 +15,7 @@ resources:
   - ./glance/ks.yaml
   - ./jellyfin/ks.yaml
   - ./lidarr/ks.yaml
-  - ./lazylibrarian/ks.yaml
+  - ./readarr/ks.yaml
   - ./radarr/ks.yaml
   - ./sonarr/ks.yaml
   - ./bazarr/ks.yaml
