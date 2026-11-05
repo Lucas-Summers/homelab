@@ -27,6 +27,9 @@ spec:
         - podSelector:
             matchLabels:
               app.kubernetes.io/name: lidarr
+        - podSelector:
+            matchLabels:
+              app.kubernetes.io/name: lazylibrarian
       ports:
         - protocol: TCP
           port: 8080

@@ -117,6 +117,10 @@ data:
                             url: https://lidarr.${SECRET_DOMAIN}
                             description: Manage music
                             icon: di:lidarr
+                          - title: LazyLibrarian
+                            url: https://books.${SECRET_DOMAIN}
+                            description: Manage books and audiobooks
+                            icon: di:readarr
                           - title: Sonarr
                             url: https://sonarr.${SECRET_DOMAIN}
                             description: Manage shows
